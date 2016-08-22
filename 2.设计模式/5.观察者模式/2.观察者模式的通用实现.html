@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+    </style>
+    <script>
+        var event = {
+            clientList: [],
+            listen: function( key, fn){
+                if( !this.clientList[ key ] ){
+                    this.clientList[ key ] = [];
+                }
+                this.clientList[ key].push( fn );
+            },
+            trigger: function(){
+                var key = Array.prototype.shift.call( arguments );
+                var fns = this.clientList[ key ];
+
+                if( !fns || fns.length === 0 ){     // 如果没有监听
+                    return false;
+                }
+
+                for( var i = 0; i < fns.length; i++ ){
+                    fns[ i ].apply(this, arguments);
+                }
+            }
+        };
+        // 定义一个installEvent函数，这个函数可以给所有的对象都动态安装发布-订阅功能
+        var installEvent = function( obj ){
+            for( var i in event ){
+                obj[ i ] = event[ i ];
+            }
+        };
+
+        var salesOffices = {};      // 定义售楼处
+        installEvent( salesOffices );
+
+        salesOffices.listen( 'squareMeter88', function( price, squareMeter ){
+            console.log( '价格：' + price );
+        });
+        salesOffices.listen( 'squareMeter100', function( price, squareMeter ){
+            console.log( '价格：' + price );
+        });
+
+        salesOffices.trigger( 'squareMeter88', 200000 );
+        salesOffices.trigger( 'squareMeter100', 300000 );
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+    </style>
+    <script>
+        function Person(name){
+            this.name = name;
+        }
+        Person.prototype.showName = function(){
+            return this.name;
+        };
+
+        var objectFactory = function(){
+            var obj = new Object();
+            var Constructor = [].shift.call(arguments);
+            obj.__proto__ = Constructor.prototype;
+            var ret = Constructor.apply(obj, arguments);
+
+            return typeof ret === 'Object' ? ret : obj;
+        };
+
+        var p1 = objectFactory(Person, 'i++');
+        console.log(p1.name);
+        console.log(p1.showName());
+        console.log(Object.getPrototypeOf(p1) === Person.prototype);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

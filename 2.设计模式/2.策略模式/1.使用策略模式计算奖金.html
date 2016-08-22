@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+    </style>
+    <script>
+        /*
+        *  问题：
+        *  1、calculateBonus函数分支比较庞大，包含了很多if-else语句，这些语句需要覆盖所有的逻辑分支
+        *  2、calculateBonus函数缺乏弹性，如果增加了一种新的绩效等级C，或者想把绩效S的奖金系数改为5，那么我们
+        *  必须深入calculateBonus函数的内部实现，这违反开放-封闭原则
+        *  3、算法的复用性差，如果在程序的其他地方需要重用这些计算奖金的算法，我们只能复制粘贴
+        * */
+        var calcuateBonus = function(performanseLevel, salary){
+            if( performanseLevel === 'S' ){
+                return salary * 4;
+            }
+            if( performanseLevel === 'A' ){
+                return salary * 3;
+            }
+            if( performanseLevel === 'B' ){
+                return salary * 2;
+            }
+        };
+
+        alert( calcuateBonus('S', 1000) );
+        alert( calcuateBonus('A', 1000) );
+        alert( calcuateBonus('B', 1000) );
+    </script>
+</head>
+<body>
+
+</body>
+</html>

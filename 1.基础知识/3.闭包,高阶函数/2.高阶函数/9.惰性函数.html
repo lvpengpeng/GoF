@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+    </style>
+    <script>
+        // 缺点：如果addEvent一次都没有调用，那么第一次判断就是多余的，也会延长页面ready时间
+        var addEvent = (function(){
+            if(window.addEventListener){
+                return function(obj, sEv, fn){
+                    obj.addEventListener(sEv, fn, false);
+                }
+            }
+            if(window.attachEvent){
+                return function(obj, sEv, fn){
+                    obj.attachEvent('on'+sEv, fn);
+                }
+            }
+        })();
+    </script>
+</head>
+<body>
+</body>
+</html>

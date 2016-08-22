@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+    </style>
+    <script>
+        var Event = (function(){
+            var clientList = {},
+                listen,
+                trigger,
+                remove;
+
+            listen = function( key, fn){
+                if( !clientList[ key ] ){
+                    clientList[ key ] = [];
+                }
+                clientList[ key].push( fn );
+            };
+
+            trigger = function(){
+                var key = Array.prototype.shift.call( arguments );
+                var fns = clientList[ key ];
+                if( !fns || fns.length === 0 ){
+                    return false;
+                }
+                for( var i = 0; i < fns.length; i++ ){
+                    fns[i].apply( this, arguments );
+                }
+            };
+
+            remove = function( key, fn ){
+                var fns = clientList[ key ];
+                if( !fns ){
+                    return false;
+                }
+                if( !fn ){
+                    fns && ( fns.length = 0 );
+                }else{
+                    for( var i = fns.length - 1; i >= 0 ; i-- ){
+                        var _fn = fns[ i ];
+                        if( _fn === fn ){
+                            fns.splice( i, 1 );
+                        }
+                    }
+                }
+            };
+
+            return {
+                listen: listen,
+                trigger: trigger,
+                remove: remove
+            }
+        })();
+        window.onload = function(){
+
+            var a = (function(){
+                var count = 0;
+                var oBtn = document.getElementById( 'btn1' );
+
+                oBtn.onclick = function(){
+                    Event.trigger( 'add', count++ );
+                };
+            })();
+
+            var b = (function(){
+                var oDiv = document.getElementById( 'div1' );
+
+                Event.listen( 'add', function( count ){
+                    oDiv.innerHTML = count;
+                });
+            })();
+        };
+    </script>
+</head>
+<body>
+    <input type="button" value="按钮" id="btn1">
+    <div id="div1"></div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+    </style>
+    <script>
+        var Iterator = function( obj ){
+            var current = 0;
+
+            var next = function(){
+                current += 1;
+            };
+            var isDone = function(){
+                return current >= obj.length;
+            };
+            var getCurrItem = function(){
+                return obj[ current ];
+            };
+
+            return {
+                next: next,
+                isDone: isDone,
+                getCurrItem: getCurrItem
+            }
+        };
+
+        var compare = function( iterator1, iterator2 ){
+            while( !iterator1.isDone() && !iterator2.isDone() ){
+                if( iterator1.getCurrItem() !== iterator2.getCurrItem() ){
+                    throw new Error('不相等');
+                }
+
+                iterator1.next();
+                iterator2.next();
+            }
+            alert( '相等' );
+        };
+        var iterator1 = Iterator( [1, 2, 3] );
+        var iterator2 = Iterator( [1, 2, 3] );
+        compare( iterator1, iterator2 );
+    </script>
+</head>
+<body>
+
+</body>
+</html>

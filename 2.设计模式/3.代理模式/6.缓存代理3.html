@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+    </style>
+    <script>
+        var mult = function(n){
+            if( n <= 2 ){
+                return 1;
+            }else{
+                return mult( n - 1 ) + mult( n - 2 );
+            }
+        };
+        var proxyMult = (function(){
+            var cache = {};
+
+            return function(){
+                var args = Array.prototype.join.call( arguments, ',' );
+                if( args in cache ){
+                    return cache[args];
+                }
+                return cache[ args ] = mult.apply( this, arguments );
+            }
+        })();
+
+        console.log( proxyMult( 30 ) );
+        console.log( proxyMult( 30 ) );
+    </script>
+</head>
+<body>
+</body>
+</html>
+
+
+
+
+
+
+
+

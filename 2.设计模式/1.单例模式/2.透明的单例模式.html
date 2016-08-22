@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+    </style>
+
+</head>
+<body>
+    <script>
+        // CreateDiv实际上负责了两件事，第一是创建对象和执行初始化init方法，第二是保证只有一个对象
+        var CreateDiv = (function(){
+            var instance;
+
+            var CreateDiv = function( html ){
+                if ( instance ){
+                    return instance;
+                }
+                this.html = html;
+                this.init();
+                return instance = this;
+            };
+            CreateDiv.prototype.init = function(){
+                var div = document.createElement( 'div' );
+                div.innerHTML = this.html;
+                document.body.appendChild( div );
+            };
+
+            return CreateDiv;
+        })();
+
+        var a = new CreateDiv('i++1');
+        var b = new CreateDiv('i++2');
+
+        // alert( a === b );
+    </script>
+</body>
+</html>

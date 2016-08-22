@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        div{
+            width: 200px;
+            height: 200px;
+            background: red;
+            float: left;
+            margin: 10px;
+            font-size: 100px;
+            color: #fff;
+            line-height: 200px;
+            text-align: center;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var aDiv = document.querySelectorAll('div');
+
+            for(var i = 0 ; i < aDiv.length ; i++){
+                ;(function(index){
+                    aDiv[i].onclick = function(){
+                        alert(index);
+                    }
+                })(i);
+            }
+        };
+    </script>
+</head>
+<body>
+    <div>0</div>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+    </style>
+    <script>
+        /*
+        * 使用闭包封装私有变量，只暴漏一些接口跟外界通信
+        * 我们用_name和_age，他们被封装在闭包产生的作用域中，外部是访问不到这两个变量的，避免对全局的命令污染
+        * */
+        var user = (function(){
+            var _name = 'i++',
+                _age = 18;
+
+            return {
+                getUserInfo: function(){
+                    return _name + '-' + _age;
+                }
+            }
+        })();
+
+        alert(user.getUserInfo());
+    </script>
+</head>
+<body>
+</body>
+</html>

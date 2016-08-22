@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+    </style>
+    <script>
+        var getActiveUploadObj = function(){
+            try{
+                return new ActiveXObject('TEFTNActiveX.FTNUpload'); // IE上传控件
+            }catch(e){
+                return false;
+            }
+        };
+        var getFlashUploadObj = function(){
+            if( supportFlash() ){                                 // flash上传
+                var str = '<object type="application/x-shockwave-flash" ></object>';
+                return $( str ).appendTo( $('body') );
+            }
+            return false;
+        };
+        var getFormUploadObj = function(){
+            var str = '<input type="file" name="file">';        // 表单上传
+            return $( str ).appendTo( $('body') );
+        };
+
+        var iteratorUploadObj = function(){
+            for( var i = 0, fn; fn = arguments[ i++ ]; ){
+                var upLoadObj = fn();
+                if( upLoadObj !== false ){
+                    return upLoadObj;
+                }
+            }
+        };
+
+        var upLoadObj = iteratorUploadObj( getActiveUploadObj, getFlashUploadObj, getFormUploadObj);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

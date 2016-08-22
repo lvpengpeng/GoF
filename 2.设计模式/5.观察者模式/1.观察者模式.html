@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+    </style>
+    <script>
+        /*
+        * 问题：
+        * 小红只想买100平的房子，当时把88平的也发布给了小红
+        * */
+        var salesOffices = {};      // 定义售楼处
+
+        salesOffices.clientList = [];   // 缓存列表，存放订阅者的回调函数
+        salesOffices.listen = function( fn ){
+            this.clientList.push( fn );
+        };
+        salesOffices.trigger = function(){
+            for( var i = 0; i < this.clientList.length; i++ ){
+                this.clientList[i].apply( this, arguments );
+            }
+        };
+
+        // 测试
+        salesOffices.listen( function( price, squareMeter ){        // 小明订阅消息
+            console.log( '价格：' + price );
+            console.log( 'squareMeter：' + squareMeter );
+        });
+        salesOffices.listen( function( price, squareMeter ){        // 小红订阅消息
+            console.log( '价格：' + price );
+            console.log( 'squareMeter：' + squareMeter );
+        });
+
+        salesOffices.trigger( 20000000, 88 );
+        salesOffices.trigger( 30000000, 100 );
+    </script>
+</head>
+<body>
+
+</body>
+</html>

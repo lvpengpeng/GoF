@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+    </style>
+    <script>
+        var Singleton = function(name){
+            this.name = name;
+            this.instance = null;
+        };
+        Singleton.prototype.getName = function(){
+            alert(this.name);
+        };
+        Singleton.getInstance = (function(){
+            var instance = null;
+            return function( name ){
+                if( !instance ){
+                    instance = new Singleton( name );
+                }
+                return instance;
+            }
+        })();
+
+        var a = Singleton.getInstance('i++');
+        var b = Singleton.getInstance('i++2');
+        alert( a === b );   // true
+    </script>
+</head>
+<body>
+
+</body>
+</html>

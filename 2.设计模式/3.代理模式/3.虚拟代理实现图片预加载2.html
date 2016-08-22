@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        var myImage = (function(){
+            var imgNode = new Image();
+            document.body.appendChild( imgNode );
+
+            return {
+                setSrc: function( src ){
+                    imgNode.src = src;
+                }
+            }
+        })();
+
+        var proxyImage = (function(){
+            var img = new Image;
+            img.onload = function(){
+                myImage.setSrc( this.src );
+            };
+            return {
+                setSrc: function(src){
+                    myImage.setSrc( 'roller.gif' );
+                    img.src = src;
+                }
+            }
+        })();
+
+        proxyImage.setSrc( 'http://img2.3lian.com/2014/f6/173/d/51.jpg' );
+    </script>
+</body>
+</html>

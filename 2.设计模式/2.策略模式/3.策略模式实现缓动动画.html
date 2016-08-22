@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        #div1{
+            width: 200px;
+            height: 200px;
+            background: red;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+    <script>
+        var tween = {
+            linear: function( t, b, c, d ){
+                return c * t / d + b;
+            },
+            easeIn: function(t, b, c, d ){
+                return c * ( t /= d) * t + b;
+            },
+            strongEaseIn: function(t, b, c, d ){
+                return c * ( t /= d ) * t * t * t * t + b;
+            },
+            strongEaseIn: function(t, b, c, d ){
+                return c * (( t /= d - 1 ) * t * t * t * t + 1) + b;
+            },
+            sineaseIn: function(t, b, c, d ){
+                return c * ( t /= d ) * t * t + b;
+            },
+            sineaseOut: function(t, b, c, d ){
+                return c * ( (t = t / d - 1) * t * t + 1 ) + b;
+            }
+        };
+
+        var Animate = function(dom){
+            this.dom = dom;                // 进行运动的dom节点
+            this.startTime = 0;           // 动画开始时间
+            this.startPos = 0;            // 开始位置
+            this.endPos = 0;              // 结束位置
+            this.propertyName = null;     // 需要被改变的css属性名
+            this.easing = null;           // 缓动算法
+            this.duration = null;         // 动画持续时间
+        };
+        /**
+         * Animate.prototype.start
+         * @param propertyName  要改变的CSS属性名，比如left top
+         * @param endPos        目标位置
+         * @param duration      总时间
+         * @param easing        运动形式
+         */
+        Animate.prototype.start = function( propertyName, endPos, duration, easing ){
+            this.startTime = +new Date;         // 动画启动时间
+            this.startPos = this.dom.getBoundingClientRect()[ propertyName ];   // dom节点初始位置
+            this.propertyName = propertyName;   // dom节点需要被改变的css属性名
+            this.endPos = endPos;               // dom节点目标位置
+            this.duration = duration;           // 动画持续时间
+            this.easing = tween[ easing ];      // 缓动算法
+
+            var self = this;
+            var timeId = setInterval(function(){
+                if( self.step() === false ){
+                    clearInterval( timeId );
+                }
+            }, 19);
+        };
+        Animate.prototype.step = function(){
+            var t = +new Date;      // 现在时间
+            if( t >= this.startTime + this.duration ){
+                this.update( this.endPos ); // 更新小球的css属性值
+                return false;
+            }
+            var pos = this.easing(
+                    t - this.startTime,
+                    this.startPos,
+                    this.endPos - this.startPos,
+                    this.duration
+            );
+            // pos为小球当前位置
+            this.update( pos );     // 更新小球的css属性值
+        };
+        Animate.prototype.update = function( pos ){
+            this.dom.style[ this.propertyName ] = pos + 'px';
+        };
+
+        window.onload = function(){
+            var oDiv = document.getElementById('div1');
+
+            var animate = new Animate( oDiv );
+            // animate.start( 'left', 500, 1000, 'linear');
+            animate.start( 'left', 500, 1000, 'sineaseOut');
+        };
+    </script>
+</head>
+<body>
+    <div id="div1"></div>
+</body>
+</html>

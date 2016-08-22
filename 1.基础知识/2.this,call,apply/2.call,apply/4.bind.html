@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+    </style>
+    <script>
+        Function.prototype.bind = function(obj){
+            var that = this;        // 保存原函数
+            return function(){
+                return that.apply(obj, arguments);  // 执行新函数的时候，会把之前传入的obj当做新函数体内的this
+            }
+        };
+
+        var obj = {
+            name: 'i++'
+        };
+
+        var fn = function(){
+            alert(this.name);
+        }.bind(obj);
+
+        fn();
+    </script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="打开电视机" id="btn1">
+<input type="button" value="关闭电视机" id="btn2">
+<script>
+    var Tv = {
+        open: function(){
+            console.log('打开电视机');
+        },
+        close: function(){
+            console.log('关闭电视机');
+        }
+    };
+
+    var openTvCommand = function(receiver){
+        this.receiver = receiver;
+    };
+    openTvCommand.prototype.open = function(){
+        this.receiver.open();   // 执行命令，打开电视机
+    };
+    openTvCommand.prototype.close = function(){
+        this.receiver.close();   // 撤销命令，关闭电视机
+    };
+
+    var setCommand = function(command){
+        document.getElementById('btn1').onclick=function(){
+            command.open(); // 打开电视机
+        };
+        document.getElementById('btn2').onclick=function(){
+            command.close(); // 关闭电视机
+        };
+    };
+
+    setCommand(new openTvCommand(Tv));
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+    </style>
+    <script>
+        var each = function( array, callback ){
+            for( var i = 0; i < array.length; i++ ){
+                callback.call( array[i], i, array[i] );
+            }
+        };
+
+        var compare = function( ary1, ary2 ){
+            if( ary1.length !== ary2.length ){
+                throw new Error( '不相等' );
+            }
+            each( ary1, function( item, value ){
+                if( value !== ary2[ item ] ){
+                    throw new Error( '不相等' );
+                }
+            });
+            alert( '相等' );
+        };
+
+        compare( [1, 2, 3], [1, 2, 3] );
+    </script>
+</head>
+<body>
+
+</body>
+</html>

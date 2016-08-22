@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+    </style>
+    <script>
+        var currying = function(fn){
+            var args = [];
+
+            return function(){
+                if(arguments.length === 0){
+                    return fn.apply(this, args);
+                }else{
+                    [].push.apply(args, arguments);
+                    return arguments.callee;
+                }
+            }
+        };
+        var cost = (function(){
+            var money = 0;
+            return function(){
+                for(var i=0; i<arguments.length; i++){
+                    money += arguments[i];
+                }
+                return money;
+            }
+        })();
+
+        var cost = currying(cost);
+
+        cost(100);
+        cost(200);
+        cost(300);
+
+        alert(cost());
+    </script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+    </style>
+    <script>
+        var MyApp = {};
+        MyApp.namespace = function( name ){
+            var parts = name.split( '.' );
+            var current = MyApp;
+            for( var i in parts ){
+                if( !current[ parts[ i ] ] ){
+                    current[ parts[ i ] ] = {};
+                }
+                current = current[ parts [ i ] ];
+            }
+        };
+
+        MyApp.namespace( 'event' );
+        MyApp.namespace( 'dom.style' );
+
+        console.log( MyApp );
+
+        // 上述代码想当于
+        // var MyApp = {
+        //     event: {},
+        //     dom: {
+        //         style: {}
+        //     }
+        // };
+    </script>
+</head>
+<body>
+</body>
+</html>

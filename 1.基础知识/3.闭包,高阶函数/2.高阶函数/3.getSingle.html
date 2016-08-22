@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+    </style>
+    <script>
+        var getSingle = function(fn){
+            var ret;
+            return function(){
+                return ret || (ret = fn.apply(this, arguments));
+            }
+        };
+
+        var getScript = getSingle(function(){
+            return document.createElement('script');
+        });
+
+        var script1 = getScript();
+        var script2 = getScript();
+        alert(script1 === script2);
+    </script>
+</head>
+<body>
+</body>
+</html>

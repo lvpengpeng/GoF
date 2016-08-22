@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+    </style>
+    <script>
+        Function.prototype.uncurrying = function(){
+            var _this = this;
+            return function(){
+                var obj = Array.prototype.shift.call(arguments);
+                return _this.apply(obj, arguments);
+            }
+        };
+
+        for(var i= 0, fn, ary=['push', 'shift', 'forEach']; fn=ary[i++];){
+            Array[fn] = Array.prototype[fn].uncurrying();
+        }
+
+        var obj={
+            0: 1,
+            1: 2,
+            2: 3,
+            length: 3
+        };
+
+        Array.push(obj, 4);
+        console.log(obj);
+
+        var first = Array.shift(obj);
+        console.log(first);
+        console.log(obj);
+
+        Array.forEach(obj, function(item, index, obj){
+            console.log(item, index, obj);
+        });
+    </script>
+</head>
+<body>
+</body>
+</html>

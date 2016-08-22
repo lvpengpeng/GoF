@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+    </style>
+    <script>
+        /*
+        * 问题：
+        * getUploadObj里面充斥了try,catch以及if条件分支
+        * 第一很难阅读
+        * 第二违反开闭原则
+        * */
+        var getUploadObj = function(){
+            try{
+                return new ActiveXObject('TEFTNActiveX.FTNUpload'); // IE上传控件
+            }catch(e){
+                if( supportFlash() ){                                 // flash上传
+                    var str = '<object type="application/x-shockwave-flash" ></object>';
+                    return $( str ).appendTo( $('body') );
+                }else{
+                    var str = '<input name="file" type="file" />';  // 表单上传
+                    return $( str ).appendTo( $('body') );
+                }
+            }
+        };
+    </script>
+</head>
+<body>
+
+</body>
+</html>

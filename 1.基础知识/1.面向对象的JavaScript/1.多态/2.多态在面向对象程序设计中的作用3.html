@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+    </style>
+    <script>
+        var googleMap = {
+            show: function(){
+                console.log('开始渲染谷歌地图');
+            }
+        };
+        var baiduMap = {
+            show: function(){
+                console.log('开始渲染百度地图');
+            }
+        };
+        var sosoMap = {
+            show: function(){
+                console.log('开始渲染搜搜地图');
+            }
+        };
+
+        var renderMap = function(map){
+            if(map.show instanceof Function){
+                map.show();
+            }
+        };
+
+        renderMap(googleMap);
+        renderMap(baiduMap);
+        renderMap(sosoMap);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
