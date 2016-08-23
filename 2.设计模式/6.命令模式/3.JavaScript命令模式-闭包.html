@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value="按钮1">
+    <input type="button" value="按钮2">
+    <input type="button" value="按钮3">
+    <script>
+        var oBtn1 = document.querySelectorAll( 'input' )[0];
+        var oBtn2 = document.querySelectorAll( 'input' )[1];
+        var oBtn3 = document.querySelectorAll( 'input' )[2];
+
+        var setCommand = function( button, fn ){
+            button.onclick = function(){
+                fn();
+            };
+        };
+
+        var MenuBar = {
+            refresh: function(){
+                console.log( '刷新菜单界面' );
+            }
+        };
+        var RefreshMenuBarCommand = function( receiver ){
+            return function(){
+                receiver.refresh();
+            }
+        };
+        var refreshMenuBarCommand = RefreshMenuBarCommand( MenuBar );
+
+        setCommand( oBtn1, refreshMenuBarCommand );
+    </script>
+</body>
+</html>
