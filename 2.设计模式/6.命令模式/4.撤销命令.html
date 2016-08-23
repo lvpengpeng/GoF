@@ -25,6 +25,7 @@
 <body>
     <div></div>
     <input type="button" value="开始运动" id="btn1">
+    <input type="button" value="取消运动" id="btn2">
     <input type="text" id="t1">
     <script>
         var tween = {
@@ -99,13 +100,34 @@
         };
 
         var oBtn1 = document.getElementById( 'btn1' );
+        var oBtn2 = document.getElementById( 'btn2' );
         var oDiv = document.querySelector( 'div' );
         var oT = document.querySelector( '#t1' );
 
+        var MoveCommand = function( receiver, pos ){
+            this.receiver = receiver;
+            this.pos = pos;
+            this.oldPos = null;
+        };
+        MoveCommand.prototype.execute = function(){
+            this.receiver.start( 'left', this.pos, 1000, 'strongEaseOut');
+            this.oldPos = this.receiver.dom.getBoundingClientRect()[ this.receiver.propertyName ];
+        };
+        MoveCommand.prototype.undo = function(){
+            this.receiver.start( 'left', this.oldPos, 1000, 'strongEaseOut' );
+        };
+
+        var moveCommand;
+
         oBtn1.onclick = function(){
             var animate = new Animate( oDiv );
-            animate.start( 'left', oT.value, 1000, 'strongEaseOut' );
+            moveCommand = new MoveCommand( animate, oT.value );
+            moveCommand.execute();
         };
+        oBtn2.onclick = function(){
+            moveCommand.undo();
+        };
+
 
     </script>
 </body>
