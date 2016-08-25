@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+    </style>
+    <script>
+        var guangdongCity = {
+            shenzhen: 11,
+            guangzhou: 12,
+            zhuhai: 13
+        };
+        var getGuangdongCity = function(){
+            var guangdongCity = [
+                {
+                    name: 'shenzhen',
+                    id: 11
+                },
+                {
+                    name: 'guangzhou',
+                    id: 12
+                }
+            ];
+            return guangdongCity;
+        };
+        var render = function( fn ){
+            console.log( '开始渲染广东省地图' );
+            document.write( JSON.stringify( fn() ) );
+        };
+        var addressAdapter = function( oldAddressfn ){
+            var address = {},
+                oldAddress = oldAddressfn();
+            for( var i = 0, c; c = oldAddress [ i++ ]; ){
+                address[ c.name ] = c.id;
+            }
+            return function(){
+                return address;
+            }
+        };
+        render( addressAdapter( getGuangdongCity ) );
+    </script>
+</head>
+<body>
+
+</body>
+</html>

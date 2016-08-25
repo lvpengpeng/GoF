@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ef5e8560-525f-421f-bb73-c03949814720" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/2.设计模式/笔记.txt" afterPath="$PROJECT_DIR$/2.设计模式/笔记.txt" />
     </list>
     <ignored path="GoF.iws" />
@@ -23,21 +24,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="3.灵活可拆分的职责链节点.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/2.设计模式/10.职责链模式/3.灵活可拆分的职责链节点.html">
+      <file leaf-file-name="1.适配器模式4.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/2.设计模式/14.适配器模式/1.适配器模式4.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.8">
-              <caret line="57" column="35" selection-start-line="57" selection-start-column="35" selection-end-line="57" selection-end-column="35" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="4.异步的职责链.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/2.设计模式/10.职责链模式/4.异步的职责链.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.62886596">
-              <caret line="72" column="11" selection-start-line="72" selection-start-column="11" selection-end-line="72" selection-end-column="11" />
+            <state vertical-scroll-proportion="-0.69072163">
+              <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -58,10 +49,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/2.设计模式/2.策略模式/2.JavaScript版本的策略模式.html" />
-        <option value="$PROJECT_DIR$/2.设计模式/2.策略模式/3.策略模式实现缓动动画.html" />
-        <option value="$PROJECT_DIR$/2.设计模式/2.策略模式/4.表单校验.html" />
-        <option value="$PROJECT_DIR$/2.设计模式/2.策略模式/4.表单校验2.html" />
         <option value="$PROJECT_DIR$/2.设计模式/2.策略模式/4.表单校验3.html" />
         <option value="$PROJECT_DIR$/2.设计模式/3.代理模式/1.代理模式.html" />
         <option value="$PROJECT_DIR$/2.设计模式/3.代理模式/1.代理模式2.html" />
@@ -109,6 +96,10 @@
         <option value="$PROJECT_DIR$/2.设计模式/10.职责链模式/2.用职责链重构代码.html" />
         <option value="$PROJECT_DIR$/2.设计模式/10.职责链模式/3.灵活可拆分的职责链节点.html" />
         <option value="$PROJECT_DIR$/2.设计模式/10.职责链模式/4.异步的职责链.html" />
+        <option value="$PROJECT_DIR$/2.设计模式/14.适配器模式/1.适配器模式.html" />
+        <option value="$PROJECT_DIR$/2.设计模式/14.适配器模式/1.适配器模式2.html" />
+        <option value="$PROJECT_DIR$/2.设计模式/14.适配器模式/1.适配器模式3.html" />
+        <option value="$PROJECT_DIR$/2.设计模式/14.适配器模式/1.适配器模式4.html" />
       </list>
     </option>
   </component>
@@ -148,6 +139,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -194,13 +186,12 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="10.职责链模式" />
+              <option name="myItemId" value="14.适配器模式" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -214,11 +205,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\HTML5课程\GoF\2.设计模式\14.适配器模式" />
       <recent name="F:\HTML5课程\GoF\2.设计模式\10.职责链模式" />
       <recent name="F:\HTML5课程\GoF\2.设计模式\7.组合模式" />
       <recent name="$PROJECT_DIR$/2.设计模式/6.命令模式" />
       <recent name="F:\HTML5课程\GoF\2.设计模式\6.命令模式" />
-      <recent name="F:\HTML5课程\GoF\2.设计模式\5.观察者模式" />
     </key>
   </component>
   <component name="RunManager">
@@ -296,7 +287,7 @@
     <option name="totallyTimeSpent" value="1979000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -338,34 +329,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/2.设计模式/2.策略模式/2.JavaScript版本的策略模式.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="26" column="10" selection-start-line="26" selection-start-column="10" selection-end-line="26" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/2.设计模式/2.策略模式/4.表单校验.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="46" column="12" selection-start-line="46" selection-start-column="12" selection-end-line="46" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/2.设计模式/2.策略模式/4.表单校验2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="84" column="6" selection-start-line="84" selection-start-column="6" selection-end-line="84" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/2.设计模式/2.策略模式/4.表单校验3.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="62" column="12" selection-start-line="62" selection-start-column="12" selection-end-line="62" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/2.设计模式/3.代理模式/1.代理模式.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -657,7 +620,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -665,7 +627,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-10.9777775">
           <caret line="68" column="15" selection-start-line="68" selection-start-column="15" selection-end-line="68" selection-end-column="15" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -673,7 +634,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6">
           <caret line="26" column="17" selection-start-line="20" selection-start-column="17" selection-end-line="26" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -681,13 +641,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-11.4">
           <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/2.设计模式/10.职责链模式/3.灵活可拆分的职责链节点.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.8">
+        <state vertical-scroll-proportion="0.0">
           <caret line="57" column="35" selection-start-line="57" selection-start-column="35" selection-end-line="57" selection-end-column="35" />
           <folding />
         </state>
@@ -695,8 +654,40 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/2.设计模式/10.职责链模式/4.异步的职责链.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.62886596">
-          <caret line="72" column="11" selection-start-line="72" selection-start-column="11" selection-end-line="72" selection-end-column="11" />
+        <state vertical-scroll-proportion="-9.511111">
+          <caret line="68" column="21" selection-start-line="68" selection-start-column="21" selection-end-line="68" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/2.设计模式/14.适配器模式/1.适配器模式.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.4">
+          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="34" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/2.设计模式/14.适配器模式/1.适配器模式2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.6">
+          <caret line="39" column="35" selection-start-line="39" selection-start-column="35" selection-end-line="39" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/2.设计模式/14.适配器模式/1.适配器模式3.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.8">
+          <caret line="16" column="8" selection-start-line="16" selection-start-column="8" selection-end-line="28" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/2.设计模式/14.适配器模式/1.适配器模式4.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.69072163">
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding />
         </state>
       </provider>
