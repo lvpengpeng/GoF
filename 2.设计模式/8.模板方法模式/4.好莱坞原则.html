@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        var Beverage = function( param ){
+            var boilWater = function(){
+                console.log( '把水煮沸' );
+            };
+            var brew = param.brew || function(){
+                throw new Error( '必须传递brew方法' );
+            };
+            var pourInCup = param.pourInGup || function(){
+                throw new Error( '必须传递pourInGup方法' );
+            };
+            var addCondiments = param.addCondiments || function(){
+                throw new Error( '必须传递addCondiments方法' );
+            };
+
+            var F = function(){};
+            F.prototype.init = function(){
+                boilWater();
+                brew();
+                pourInCup();
+                addCondiments();
+            };
+            return F;
+        };
+
+        var Coffee = Beverage({
+            brew: function(){
+                console.log( '用沸水冲泡咖啡' );
+            },
+            pourInGup: function(){
+                console.log( '把咖啡倒进被子' );
+            },
+            addCondiments: function(){
+                console.log( '加糖和牛奶' );
+            }
+        });
+        var Tea = Beverage({
+            brew: function(){
+                console.log( '用沸水浸泡茶叶' );
+            },
+            pourInGup: function(){
+                console.log( '把茶倒进被子' );
+            },
+            addCondiments: function(){
+                console.log( '加柠檬' );
+            }
+        });
+
+        var coffee = new Coffee();
+        var tea = new Tea();
+
+        coffee.init();
+        tea.init();
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
